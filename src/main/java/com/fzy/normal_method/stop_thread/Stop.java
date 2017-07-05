@@ -26,6 +26,7 @@ public class Stop {
 
 class StopThr1 extends Thread{
 
+    @Override
     public void run(){
         try {
             for(int i=0;i<5;i++){

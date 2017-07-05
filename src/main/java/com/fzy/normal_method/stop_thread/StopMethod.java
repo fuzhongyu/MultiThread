@@ -26,6 +26,8 @@ public class StopMethod {
 }
 
 class StoThr1 extends Thread{
+
+    @Override
     public void run(){
 
         try {

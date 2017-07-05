@@ -77,6 +77,8 @@ public class Interrupt {
 }
 
 class IntThr1 extends Thread{
+
+    @Override
     public void run(){
         for (int i=0;i<5;i++){
             System.out.println("i="+i);
@@ -85,6 +87,8 @@ class IntThr1 extends Thread{
 }
 
 class IntThr2 extends Thread{
+
+    @Override
     public void run(){
         for (int i=0;i<5;i++){
             System.out.println("i="+i);
@@ -94,6 +98,8 @@ class IntThr2 extends Thread{
 }
 
 class IntThr3 extends Thread{
+
+    @Override
     public void run(){
         for (int i=0;i<5;i++){
             System.out.println("i="+i);

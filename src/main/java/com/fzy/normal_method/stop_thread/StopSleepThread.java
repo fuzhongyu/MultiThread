@@ -28,6 +28,7 @@ public class StopSleepThread {
 
 class StoSleThr1 extends Thread{
 
+    @Override
     public void run(){
         try {
             System.out.println("run begin");

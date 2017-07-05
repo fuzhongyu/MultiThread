@@ -26,6 +26,8 @@ public class Sleep {
 }
 
 class SlThread1 extends Thread{
+
+    @Override
     public void run(){
 
         try {
