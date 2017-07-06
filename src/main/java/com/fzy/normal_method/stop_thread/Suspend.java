@@ -72,6 +72,9 @@ public class Suspend {
 
     /**
      * 比较test3和test4，test3能输出main end 而test4不能输出main end，原因是System.out.println中含有锁导致独占现象
+     *
+     * System.out是静态变量，所以所有的System.out.println获取的是同一个变量的锁
+     *
      */
     public static void test3(){
         try {
@@ -88,10 +91,10 @@ public class Suspend {
 
     public static void test4(){
         try {
-            SuThr2 thr1=new SuThr2();
-            thr1.start();
+            SuThr2 thr2=new SuThr2();
+            thr2.start();
             Thread.sleep(500);
-            thr1.suspend();
+            thr2.suspend();
             System.out.println("main end");
         }catch (InterruptedException e){
             e.printStackTrace();
