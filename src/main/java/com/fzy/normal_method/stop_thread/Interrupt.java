@@ -23,15 +23,11 @@ public class Interrupt {
      */
     public static void test1(){
 
-        try {
-            IntThr1 intThr=new IntThr1();
-            intThr.start();
-            Thread.sleep(2000);
+        IntThr1 intThr=new IntThr1();
+        intThr.start();
+        intThr.interrupt();
+        System.out.println("---执行了interrupt---");
 
-            intThr.interrupt();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
     }
 

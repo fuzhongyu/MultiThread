@@ -2,6 +2,7 @@ package com.fzy.normal_method.stop_thread;
 
 /**
  * 停止线程--异常法
+ *
  * Created by fuzhongyu on 2017/6/30.
  */
 public class StopMethod {

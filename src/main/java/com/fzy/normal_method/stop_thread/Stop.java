@@ -2,6 +2,7 @@ package com.fzy.normal_method.stop_thread;
 
 /**
  * 使用stop()方法，暴力停止线程
+ *
  * Created by fuzhongyu on 2017/6/30.
  */
 public class Stop {

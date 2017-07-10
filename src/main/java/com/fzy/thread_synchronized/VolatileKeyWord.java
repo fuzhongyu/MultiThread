@@ -43,7 +43,7 @@ public class VolatileKeyWord {
     }
 
     /**
-     *
+     * 利用volatile关键字定义变量，可以在私有内存和共有内存同步数据
      */
     public static void test3(){
         VolService3 volService=new VolService3();
@@ -144,3 +144,4 @@ class VolService3 extends Thread {
         service();
     }
 }
+
