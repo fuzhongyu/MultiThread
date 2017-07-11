@@ -5,7 +5,7 @@ package com.fzy.thread_communication.ProductCustomer;
  *
  * Created by fuzhongyu on 2017/7/8.
  */
-public class OprationVal {
+public class OperationVal {
 
     public static void main(String[] args) {
         test1();
@@ -13,7 +13,7 @@ public class OprationVal {
 
     public static void test1(){
 
-        String lock=new String("");
+        OprValueObject lock=new OprValueObject();
 
         OprProduct1 product1=new OprProduct1(lock);
         OprCustomer1 customer1=new OprCustomer1(lock);
@@ -54,16 +54,16 @@ class OprValueObject{
  */
 class OprProduct1{
 
-    private String lock;
+    private OprValueObject lock;
 
-    public OprProduct1(String lock) {
+    public OprProduct1(OprValueObject lock) {
         this.lock = lock;
     }
 
     public void setVal(){
         try {
             synchronized (lock){
-                if(!"".equals(OprValueObject.value)){
+                while(!"".equals(OprValueObject.value)){
                     System.out.println("生产者wait了");
                     lock.wait();
                 }
@@ -84,16 +84,16 @@ class OprProduct1{
  */
 class OprCustomer1{
 
-    private String lock;
+    private OprValueObject lock;
 
-    public OprCustomer1(String lock) {
+    public OprCustomer1(OprValueObject lock) {
         this.lock = lock;
     }
 
     public void getVal(){
         try {
             synchronized (lock){
-                if("".equals(OprValueObject.value)){
+                while("".equals(OprValueObject.value)){
                     System.out.println("消费者wait了");
                     lock.wait();
                 }

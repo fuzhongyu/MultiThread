@@ -37,8 +37,7 @@ public class SyncString {
 
 class StrService{
 
-    //因为System.out获取的是静态PrintStream变量，即所有的System.out.println共用的是一个对象的锁，所以这边用static方法模拟
-    public static void print(String stringParam){
+    public void print(String stringParam){
 
         try {
             synchronized (stringParam){
