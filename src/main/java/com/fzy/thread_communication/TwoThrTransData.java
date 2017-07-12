@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * 线程间交互
  *
  * Created by fuzhongyu on 2017/7/7.
  */
