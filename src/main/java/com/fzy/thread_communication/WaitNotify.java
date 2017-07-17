@@ -17,9 +17,9 @@ package com.fzy.thread_communication;
 public class WaitNotify {
 
     public static void main(String[] args) {
-//        test1();
+        test1();
 //        test2();
-        test3();
+//        test3();
     }
 
     /**

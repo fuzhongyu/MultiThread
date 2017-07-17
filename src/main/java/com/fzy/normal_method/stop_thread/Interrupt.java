@@ -4,7 +4,7 @@ package com.fzy.normal_method.stop_thread;
  * 停止线程:停止线程使用Thread.interrupt() ,也有Thread.stop()方法，但已经废弃不建议使用
  *
  *   (1) this.interrupted(): 测试当前线程是否是已经中断状态，执行后具体有将状态标识清除为false的功能
- *  （2）this.isInterrupted():测试线程Thread对象是否已经是中断状态，但不清除状态标志
+ *  （2）thread.isInterrupted():测试线程Thread对象是否已经是中断状态，但不清除状态标志
  *
  * Created by fuzhongyu on 2017/6/28.
  */
@@ -60,8 +60,7 @@ public class Interrupt {
             intThr.start();
             Thread.sleep(0);
             intThr.interrupt();
-            //中断的是inThr线程，而interrupted()是测试当前线程是否已经中断，当前线程是main所以输出都是false
-            System.out.println("是否停止1："+intThr.isInterrupted());   //false
+            System.out.println("是否停止1："+intThr.isInterrupted());   //true
         }catch (InterruptedException e){
             e.printStackTrace();
         }
