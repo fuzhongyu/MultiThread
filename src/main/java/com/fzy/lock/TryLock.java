@@ -1,5 +1,6 @@
 package com.fzy.lock;
 
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -18,7 +19,8 @@ public class TryLock {
     public static void main(String[] args) {
 //        test1();
 //        test2();
-        test3();
+//        test3();
+        test4();
     }
 
     /**
@@ -88,8 +90,12 @@ public class TryLock {
     }
 
 
+    /**
+     * tryLock()当lock未被锁定的时候，获取该锁，并锁定
+     */
     public static void test3(){
         TrLoService2 trLoService2=new TrLoService2();
+
         new Thread("a"){
             @Override
             public void run(){
@@ -103,6 +109,44 @@ public class TryLock {
                 trLoService2.service1();
             }
         }.start();
+
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        new Thread("c"){
+            @Override
+            public void run(){
+                trLoService2.service2();
+            }
+        }.start();
+    }
+
+    /**
+     * tryLock(long timeout,TimeUnit unit),等待给定时间去获取锁，超过这个时间不在争取锁
+     */
+    public static void test4(){
+
+        TrLoService3 trLoService3=new TrLoService3();
+
+        new Thread("a"){
+            @Override
+            public void run(){
+                System.out.println(Thread.currentThread().getName()+" 调用时间："+System.currentTimeMillis());
+                trLoService3.service1();
+            }
+        }.start();
+
+        new Thread("b"){
+            @Override
+            public void run(){
+                System.out.println(Thread.currentThread().getName()+" 调用时间："+System.currentTimeMillis());
+                trLoService3.service1();
+            }
+        }.start();
+
     }
 }
 
@@ -156,9 +200,40 @@ class TrLoService2{
             System.out.println(Thread.currentThread().getName()+"未获得锁");
         }
     }
+
+    public void service2(){
+        lock.lock();
+        System.out.println("---");
+    }
 }
 
 class TrLoService3{
     private ReentrantLock lock=new ReentrantLock();
+
+    public void service1(){
+        try {
+            if(lock.tryLock(3, TimeUnit.SECONDS)){
+                System.out.println(Thread.currentThread().getName()+"  获得锁时间："+System.currentTimeMillis());
+                //如果休眠4秒>3秒 则b线程得不到锁
+                Thread.sleep(4000);
+            }else {
+                System.out.println(Thread.currentThread().getName()+"没有获得锁");
+            }
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }finally {
+            if(lock.isHeldByCurrentThread()){
+                lock.unlock();
+            }
+        }
+    }
+
+    public void service2(){
+        if (lock.tryLock()){
+            System.out.println(Thread.currentThread().getName()+"获得锁");
+        }else {
+            System.out.println(Thread.currentThread().getName()+"未获得锁");
+        }
+    }
 
 }

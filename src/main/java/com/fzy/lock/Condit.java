@@ -5,7 +5,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 使用Condition实现等待/通知
+ * 使用Condition实现等待/通知  ，如果要设定等待时间使用condition.awaitUntil()方法
  *
  *  注： （1）在一个Lock中可以创建多个Condition（对象监视器）,从而可以选择性的进行线程通知,而notify中被通知的线程是有jvm随机选择的
  *      （2）synchronized相当于整个Lock中只有一个单一的Condition对象，所有线程都注册在他的一个对象中，线程开始notifAll()时，需要通知所有的wait线程，没有选择权
