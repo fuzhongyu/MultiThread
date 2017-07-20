@@ -3,7 +3,7 @@ package com.fzy.lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 公平锁和非公平锁
+ * 公平锁和非公平锁 （synchornized获得的是非公平锁）
  *
  *    公平锁：线程获取锁的顺序是按照线程加锁的顺序来分配的，即先来先得
  *    非公平锁：一种获取锁的抢占机制，是随机获得锁的，先来的不一定先得到锁，这可能造成某些线程一直拿不到锁。

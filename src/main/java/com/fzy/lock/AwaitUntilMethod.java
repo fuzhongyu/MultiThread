@@ -5,7 +5,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- *  condition.awaitUntil() 可设定等待时间  condition.await()不可设定时间
+ *  condition.awaitUntil() 可设定等待到什么时间点， condition.await()不可设定时间
  * Created by fuzhongyu on 2017/7/18.
  */
 public class AwaitUntilMethod {

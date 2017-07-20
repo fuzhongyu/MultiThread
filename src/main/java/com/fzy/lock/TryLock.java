@@ -12,6 +12,12 @@ import java.util.concurrent.locks.ReentrantLock;
  *
  *  (3) tryLock(long timeout,TimeUnit unit)如果锁在给定等待时间内没有被另一个线程保持，且当前线程未中断，则获取该锁定
  *
+ *
+ *  注： lock.lock()和lock.tryLock()比较：
+ *         1）lock(), 拿不到锁就一直等待。
+ *         2）tryLock()，马上返回，拿到lock就返回true，不然返回false。
+ *            带时间限制的tryLock()，拿不到lock，就等一段时间，超时返回false。
+ *
  * Created by fuzhongyu on 2017/7/15.
  */
 public class TryLock {
