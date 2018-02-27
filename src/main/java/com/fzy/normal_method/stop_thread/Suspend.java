@@ -80,7 +80,7 @@ public class Suspend {
         try {
             SuThr1 thr1=new SuThr1();
             thr1.start();
-            Thread.sleep(1000);
+            Thread.sleep(10);
             thr1.suspend();
             System.out.println("main end");
         }catch (InterruptedException e){
@@ -93,7 +93,7 @@ public class Suspend {
         try {
             SuThr2 thr2=new SuThr2();
             thr2.start();
-            Thread.sleep(500);
+            Thread.sleep(10);
             thr2.suspend();
             System.out.println("main end");
         }catch (InterruptedException e){

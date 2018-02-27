@@ -111,7 +111,7 @@ public class ThreadObjWait {
             public void run(){
                 try {
                     System.out.println("--->"+Thread.currentThread().getName());
-                    sleep(2000);
+                    sleep(5000);
                     System.out.println(Thread.currentThread().getName()+" sleep 结束");
                 }catch (InterruptedException e){
                     e.printStackTrace();
@@ -122,7 +122,7 @@ public class ThreadObjWait {
         thr1.start();
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(10);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

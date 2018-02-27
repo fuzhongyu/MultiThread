@@ -47,6 +47,7 @@ class ThrCroService{
                 //释放当前对象的锁
                 wait();
             }
+            Thread.sleep(1000);
             System.out.println("service1");
             flag=true;
             notifyAll();
@@ -60,6 +61,7 @@ class ThrCroService{
             while (!flag){
                 wait();
             }
+            Thread.sleep(1000);
             System.out.println("service2");
             flag=false;
             notifyAll();

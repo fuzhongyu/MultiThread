@@ -1,7 +1,10 @@
 package com.fzy.thread_synchronized;
 
 /**
- * synchronized锁重入
+ * synchronized锁重入：
+ *         如果没有锁重入机制，则如果同一个类中存在两个synchronized方法调用会出现死锁的现象。
+ *         这边特别解释一下父子继承关系的时候为什么需要锁重入机制,当子类调用父类的同步方法时，获得的是此时子类对象的锁，而不是父类的，
+ *         锁没有子类父类一说，只有获得了哪个对象的锁
  *
  *   在使用synchronized时，当一个线程得到对象锁后，再此请求此对象时可以再次得到该对象的锁
  * Created by fuzhongyu on 2017/7/5.
@@ -58,9 +61,11 @@ class SyReService{
         service3();
     }
 
+
     public synchronized void service3(){
         System.out.println("-----service3---");
     }
+
 }
 
 class SyReServ extends SyReService{

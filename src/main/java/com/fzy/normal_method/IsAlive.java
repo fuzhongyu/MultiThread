@@ -29,6 +29,7 @@ public class IsAlive {
         System.out.println("begin isAlive="+thread.isAlive());
         thread.setName("A");
         thread.start();
+//        thr2.start();
         System.out.println("end isAlive="+thread.isAlive());
     }
 

@@ -24,7 +24,7 @@ public class WaitTime {
                     Object obj=new Object();
                     synchronized (obj){
                         System.out.println("--- wait begin ----");
-                        //等待3秒唤醒，如果没有通知，则自动唤醒
+                        //等待3秒唤醒，如果没有通知，则自动唤醒(需要获得obj的锁)
                         obj.wait(3000);
                         System.out.println("--- wait end ---");
                     }

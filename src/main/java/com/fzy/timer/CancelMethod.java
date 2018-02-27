@@ -22,10 +22,11 @@ public class CancelMethod {
         test1();
 //        test2();
 //        test3();
+//        test4();
     }
 
     /**
-     * task1 在第一次运行后就停止了，task2还是继续运行
+     * task2 在第一次运行后就停止了，task1还是继续运行
      */
     public static void test1(){
 
@@ -42,6 +43,15 @@ public class CancelMethod {
             e.printStackTrace();
         }
 
+    }
+
+    /**
+     * task2 在运行一次后停止，但进程并没有被销毁
+     */
+    public static void test4(){
+        Timer timer=new Timer();
+        CaMeTask2 task2=new CaMeTask2();
+        timer.schedule(task2,3000,1000);
     }
 
     /**
@@ -105,7 +115,7 @@ class CaMeTask2 extends TimerTask{
     public void run() {
         System.out.println("task2 运行了！当前时间："+new Date());
         //清除该定时任务
-        this.cancel();
+       super.cancel();
 
     }
 }

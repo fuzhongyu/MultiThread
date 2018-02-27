@@ -8,7 +8,30 @@ package com.fzy.thread_synchronized;
 public class SyncString {
 
     public static void main(String[] args) {
-        test1();
+
+        Object sourceA=new Object();
+
+
+        new Thread("a"){
+            @Override
+            public void run(){
+                synchronized (sourceA){
+                    //执行方法
+                }
+            }
+        }.start();
+
+
+        new Thread("b"){
+            @Override
+            public void run(){
+                synchronized (sourceA){
+                    //执行方法
+                }
+            }
+        }.start();
+
+
     }
 
     /**

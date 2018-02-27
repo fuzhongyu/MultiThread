@@ -9,8 +9,8 @@ public class TheadDataShare {
 
     public static void main(String[] args) {
         test1();
-        test2();
-        test3();
+//        test2();
+//        test3();
     }
 
     //不共享数据情况

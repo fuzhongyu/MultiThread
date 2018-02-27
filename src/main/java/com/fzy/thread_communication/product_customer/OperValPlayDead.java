@@ -10,8 +10,8 @@ package com.fzy.thread_communication.product_customer;
 public class OperValPlayDead {
 
     public static void main(String[] args) {
-//        test1();
-        test2();
+        test1();
+//        test2();
     }
 
     /**

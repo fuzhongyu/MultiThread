@@ -7,8 +7,13 @@ package com.fzy.thread_synchronized;
  */
 public class SyncVolatile {
 
+    public static void main(String[] args) {
+        test1();
+//        test2();
+    }
+
     /**
-     * 在server 服务下不能停止
+     * 在server  运行模式下不能停止
      */
    public static void test1(){
 
@@ -37,7 +42,7 @@ public class SyncVolatile {
 
 
     /**
-     * 在server 服务下能停止,sychronize会将线程工作内存中的私有变量和共有堆栈变量同步
+     * 在server 模式下能停止,sychronize会将线程工作内存中的私有变量和共有堆栈变量同步
      */
     public static void test2(){
 
@@ -75,6 +80,12 @@ class SynVolService1{
 
     public void service(){
         while (isCOntinueRun){
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("--- service1 execute ----");
         }
         System.out.println("--- service1 线程停止---");
     }
@@ -91,6 +102,12 @@ class SynVolService2{
     public void service(){
         while (isCOntinueRun){
             synchronized (new Object()){
+                try {
+                    Thread.sleep(200);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("--- service2 execute ----");
             }
         }
         System.out.println("--- service2 线程停止---");

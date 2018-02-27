@@ -12,9 +12,9 @@ package com.fzy.normal_method;
 public class CurrentThread {
 
     public static void main(String[] args) {
-//        test1();
+        test1();
 //        test2();
-        test3();
+//        test3();
     }
 
 
@@ -33,6 +33,7 @@ public class CurrentThread {
 
         CuThread1 thr1=new CuThread1();
         Thread thread=new Thread(thr1);
+        System.out.println("thread info------>"+thread.getName()+"   "+thread.getId());
         thread.start();
     }
 

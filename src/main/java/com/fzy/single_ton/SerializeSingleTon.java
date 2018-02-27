@@ -59,6 +59,7 @@ class SerSinObject implements Serializable{
 
     /**
      * 反序列化的时候，会调用这个方法保证反序列化是同一个对象（如果去掉这个方法，反序列化对象和序列化对象不是同一个，及不是单例）
+     * 当JVM从内存中反序列化地"组装"一个新对象时,就会自动调用这个 readResolve方法来返回我们指定好的对象了, 单例规则也就得到了保证
      * @return
      * @throws ObjectStreamException
      */
